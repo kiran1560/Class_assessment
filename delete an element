@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+void del(int arr[], int target, int& n) {
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            count++;
+        }
+    }
+
+    int new_arr[n - count];
+    int num = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != target) 
+		{
+            new_arr[num] = arr[i];
+            num++;
+        }
+    }
+
+    n = n - count;
+
+    for (int i = 0; i < n; i++) {
+        cout << new_arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n =5;
+    int arr[5];
+    int target;
+    
+
+    cout << "Enter 5 elements of the array: " << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Enter the target value: " << endl;
+    cin >> target;
+
+    del(arr, target, n);
+
+    return 0;
+}
